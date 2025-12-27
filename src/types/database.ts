@@ -64,6 +64,47 @@ export interface Database {
           created_at?: string
         }
       }
+      challenges: {
+        Row: {
+          id: string
+          challenger_id: string
+          challenged_id: string
+          status: string
+          resolved_match_id: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          challenger_id: string
+          challenged_id: string
+          status?: string
+          resolved_match_id?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          challenger_id?: string
+          challenged_id?: string
+          status?: string
+          resolved_match_id?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+      }
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      [_ in never]: never
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
     }
   }
 }
