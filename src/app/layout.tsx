@@ -4,13 +4,17 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const appTitle = process.env.NEXT_PUBLIC_APP_TITLE ?? "CourtKing";
+const appDescription =
+  process.env.NEXT_PUBLIC_APP_DESCRIPTION ?? "Badminton Flex-League";
+
 export const metadata: Metadata = {
-  title: "CourtKing",
-  description: "Badminton Flex-League",
+  title: appTitle,
+  description: appDescription,
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "CourtKing",
+    title: appTitle,
   },
 };
 

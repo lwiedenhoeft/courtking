@@ -7,6 +7,7 @@ export const revalidate = 0;
 
 export default async function Home() {
   const supabase = await createClient();
+  const appTitle = process.env.NEXT_PUBLIC_APP_TITLE ?? "CourtKing 👑";
   
   const {
     data: { user },
@@ -25,7 +26,7 @@ export default async function Home() {
         <div className="flex justify-between items-center">
           <div className="text-left">
             <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-              CourtKing 👑
+              {appTitle}
             </h1>
           </div>
           <div>

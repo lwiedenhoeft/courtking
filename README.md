@@ -81,6 +81,8 @@ NEXT_PUBLIC_SUPABASE_URL=https://<your-project-ref>.supabase.co
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=<your publishable key>
 SUPABASE_SECRET_KEY=<your secret key (server-only)>
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
+NEXT_PUBLIC_APP_TITLE=CourtKing 👑
+NEXT_PUBLIC_APP_DESCRIPTION=Badminton Flex-League
 ```
 
 Notes:
