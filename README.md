@@ -65,7 +65,47 @@ This project serves as a proof of concept for modern web development in a rural 
 
 ---
 
-## 6. Roadmap (MVP)
+## 6. Getting Started
+
+### Prerequisites
+
+- Node.js 20+
+- A Supabase project (Auth + Postgres)
+
+### Environment Variables
+
+Create `.env.local`:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=https://<your-project-ref>.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=<your publishable key>
+SUPABASE_SECRET_KEY=<your secret key (server-only)>
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+```
+
+Notes:
+
+- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` is the browser-safe key (Supabase “Publishable”).
+- `SUPABASE_SECRET_KEY` is server-only (Supabase “Secret”). Do not expose it to the client.
+
+### Install & Run
+
+```bash
+npm install
+npm run dev
+```
+
+### Database Migrations
+
+Apply the SQL migrations in Supabase (Dashboard → SQL editor), in order:
+
+- `supabase/migrations/001_initial_schema.sql`
+- `supabase/migrations/002_challenges_and_rls.sql`
+- `supabase/migrations/003_tighten_rls_and_reporter.sql`
+
+---
+
+## 7. Roadmap (MVP)
 
 * **Phase 1 (Alpha):** Release a “read-only” leaderboard with dummy data.
 * **Phase 2 (Beta):** Match reporting + auth (magic link login). Pilot with 10 players (“Sebach Squad”).
@@ -73,10 +113,10 @@ This project serves as a proof of concept for modern web development in a rural 
 
 ---
 
-## 7. Contact & Contributing
+## 8. Contact & Contributing
 
 **Project lead:** [Your Name]
 **Status:** Actively developed
-**Repository:** github.com/[user]/badminton-league
+**Repository:** github.com/lwiedenhoeft/courtking
 
 > *Digitizing local sports — one match at a time.*
