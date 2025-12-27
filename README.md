@@ -1,82 +1,82 @@
 
-# 🏸 CourtKing: Local Badminton Flex-League
+# 🏸 CourtKing: Local Badminton Flex League
 
-**Hyper-lokale, datengetriebene Matchmaking-Plattform für den ambitionierten Breitensport.**
+**A hyper-local, data-driven matchmaking platform for ambitious recreational players.**
 
 ## 1. Executive Summary
 
-**CourtKing** (Arbeitstitel) ist eine Progressive Web App (PWA), die den Badmintonsport in der Region Großenseebach/Weisendorf digitalisiert und flexibilisiert. Sie löst das Problem starrer Liga-Strukturen durch ein asynchrones Forderungssystem. Basierend auf dem **Glicko-2 Algorithmus**, ermöglicht die Plattform faire, spannende Matches auf Augenhöhe – zeitunabhängig und ohne Mannschaftszwang.
+**CourtKing** (working title) is a Progressive Web App (PWA) that digitizes and makes badminton more flexible in the Großenseebach/Weisendorf region. It solves the problem of rigid league structures with an asynchronous challenge system. Based on the **Glicko-2 algorithm**, the platform enables fair, exciting matches between players of similar level — independent of fixed schedules and without the need for teams.
 
 ---
 
-## 2. Das Problem (Status Quo)
+## 2. The Problem (Status Quo)
 
-Ambitionierte Hobbyspieler stehen oft vor einem Dilemma:
+Ambitious recreational players often face a dilemma:
 
-* **Starre Strukturen:** Der offizielle Ligabetrieb (BBV) erfordert feste Mannschaften, Wochenend-Termine und lange Fahrten.
-* **Mangelnde Flexibilität:** Beruf und Familie lassen oft keine festen Trainingszeiten zu.
-* **Skill-Mismatch:** Beim freien Spiel im Verein trifft man oft auf Gegner, die entweder viel zu stark oder zu schwach sind. Das hemmt den Lernfortschritt und den Spaß.
-* **Organisatorischer Aufwand:** Verabredungen laufen chaotisch über WhatsApp-Gruppen ("Wer hat heute Zeit?").
-
----
-
-## 3. Die Lösung
-
-Eine **"Offline-First" Web-App**, die als digitale Schicht über den lokalen Sporthallen liegt.
-
-* **Flex-Ranking:** Eine lebende Rangliste, die sich nach jedem Spiel aktualisiert.
-* **On-Demand Matchmaking:** Spieler fordern sich gegenseitig heraus, wann immer sie Zeit haben (z.B. Dienstagabend 20 Uhr).
-* **Smart Scoring:** Integration von Glicko-2 zur präzisen Berechnung der Spielstärke unter Berücksichtigung von Inaktivität und Ergebnis-Klarheit.
+* **Rigid structures:** Official league play (BBV) requires fixed teams, weekend appointments, and long travel.
+* **Lack of flexibility:** Work and family often don’t allow fixed training times.
+* **Skill mismatch:** In casual club play you frequently end up with opponents who are either far too strong or too weak. That slows learning and reduces fun.
+* **Organizational overhead:** Scheduling happens chaotically via WhatsApp groups ("Who has time today?").
 
 ---
 
-## 4. Value Proposition (Das Nutzenversprechen)
+## 3. The Solution
 
-### Für den Spieler (The User)
+An **“offline-first” web app** that acts as a digital layer on top of local sports halls.
 
-> *"Spiele wann du willst, gegen wen du willst – und wisse immer genau, wo du stehst."*
-
-* **Autonomie & Flexibilität:** Kein Saison-Zwang. Matches finden statt, wenn beide Spieler Zeit haben.
-* **Fairer Wettbewerb:** Dank des Algorithmus finden Spieler Gegner auf ihrem exakten Niveau (Flow-Channel: 40-60% Gewinnwahrscheinlichkeit).
-* **Gamification & Fortschritt:** Sichtbare Entwicklung durch Rating-Kurven und "Reliability-Scores". Das Training bekommt ein messbares Ziel.
-* **Einfachheit:** Kein App-Download nötig. Funktioniert sofort im Browser, auch bei schlechtem Netz in der Halle.
-
-### Für die Vereine & Community (The Partner)
-
-> *"Belebe die Halle und binde Mitglieder durch digitale Innovation."*
-
-* **Mitgliederbindung:** Ein modernes Angebot hält junge, digital-affine Spieler im Verein.
-* **Hallen-Auslastung:** "Tote Zeiten" in der Halle werden durch individuelle Forderungsspiele gefüllt.
-* **Vereinsübergreifende Vernetzung:** Die "Mauer" zwischen Großenseebach und Weisendorf wird durchlässig – man spielt miteinander statt nebeneinander her.
+* **Flex ranking:** A live leaderboard that updates after every match.
+* **On-demand matchmaking:** Players challenge each other whenever they have time (e.g., Tuesday 8pm).
+* **Smart scoring:** Glicko-2 integration to compute skill more precisely, taking inactivity and result confidence into account.
 
 ---
 
-## 5. Technische Highlights (Tech Stack)
+## 4. Value Proposition
 
-Das Projekt dient als Proof-of-Concept für moderne Web-Entwicklung im ländlichen Raum.
+### For Players (The User)
 
-| Komponente | Technologie | Begründung |
+> *“Play when you want, against who you want — and always know exactly where you stand.”*
+
+* **Autonomy & flexibility:** No season lock-in. Matches happen when both players have time.
+* **Fair competition:** The algorithm helps players find opponents at the right level (flow channel: 40–60% win probability).
+* **Gamification & progress:** Visible improvement via rating curves and “reliability scores.” Training gains a measurable goal.
+* **Simplicity:** No app download required. Works instantly in the browser, even with poor reception in the hall.
+
+### For Clubs & Community (The Partner)
+
+> *“Bring life to the hall and retain members through digital innovation.”*
+
+* **Member retention:** A modern offering keeps younger, digitally-minded players engaged.
+* **Better court utilization:** “Dead times” in the hall get filled with ad-hoc challenge matches.
+* **Cross-club connection:** The “wall” between Großenseebach and Weisendorf becomes more permeable — people play together instead of side-by-side.
+
+---
+
+## 5. Technical Highlights (Tech Stack)
+
+This project serves as a proof of concept for modern web development in a rural context.
+
+| Component | Technology | Rationale |
 | --- | --- | --- |
-| **Frontend** | **Next.js (React)** | Performance, SEO und PWA-Fähigkeit. |
-| **Styling** | **Tailwind CSS** | Mobile-First Design System. |
-| **Backend** | **Supabase** | PostgreSQL Datenbank & Realtime Subscriptions. |
-| **Logic** | **Glicko-2** | Wissenschaftlich fundiertes Rating-System (überlegen gegenüber ELO). |
-| **Hosting** | **Vercel** | Edge Network für minimale Latenz. |
+| **Frontend** | **Next.js (React)** | Performance, SEO, and PWA capabilities. |
+| **Styling** | **Tailwind CSS** | Mobile-first design system. |
+| **Backend** | **Supabase** | PostgreSQL database & realtime subscriptions. |
+| **Logic** | **Glicko-2** | Research-backed rating system (more robust than Elo). |
+| **Hosting** | **Vercel** | Edge network for minimal latency. |
 
 ---
 
 ## 6. Roadmap (MVP)
 
-* **Phase 1 (Alpha):** Release der "Read-Only" Rangliste mit Dummy-Daten.
-* **Phase 2 (Beta):** Match-Reporting Funktion & Auth (Login via Magic Link). Testlauf mit 10 Spielern ("Sebach Squad").
-* **Phase 3 (Live):** Integration der Glicko-2 Berechnung und "Badges" für Aktivität. Rollout für alle Vereinsmitglieder.
+* **Phase 1 (Alpha):** Release a “read-only” leaderboard with dummy data.
+* **Phase 2 (Beta):** Match reporting + auth (magic link login). Pilot with 10 players (“Sebach Squad”).
+* **Phase 3 (Live):** Integrate Glicko-2 updates and activity badges. Rollout to all club members.
 
 ---
 
-## 7. Kontakt & Mitmachen
+## 7. Contact & Contributing
 
-**Projektleitung:** [Ihr Name]
-**Status:** In aktiver Entwicklung
-**Repository:** `github.com/[user]/badminton-league`
+**Project lead:** [Your Name]
+**Status:** Actively developed
+**Repository:** github.com/[user]/badminton-league
 
-> *Digitalisiert den Dorf-Sport – ein Match nach dem anderen.*
+> *Digitizing local sports — one match at a time.*
