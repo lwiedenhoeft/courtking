@@ -21,7 +21,7 @@ export default async function Home() {
       .select("hall_id")
       .eq("id", user.id)
       .maybeSingle();
-    userHallId = userData?.hall_id ?? null;
+    userHallId = (userData as { hall_id: string } | null)?.hall_id ?? null;
   }
 
   // If no user or no hall found for user, default to first hall
@@ -31,15 +31,20 @@ export default async function Home() {
       .select("id")
       .limit(1)
       .single();
-    userHallId = defaultHall?.id ?? null;
+    userHallId = (defaultHall as { id: string } | null)?.id ?? null;
   }
 
   // Fetch players scoped to the hall
-  const { data: playersData } = await supabase
+  const playersQuery = supabase
     .from("players")
     .select("*")
-    .eq("hall_id", userHallId)
     .order("rating", { ascending: false });
+
+  if (userHallId) {
+    playersQuery.eq("hall_id", userHallId);
+  }
+
+  const { data: playersData } = await playersQuery;
 
   const players = playersData as any[];
 

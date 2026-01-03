@@ -41,7 +41,7 @@ export async function createChallenge(formData: FormData) {
     redirect("/?error=Could not verify players");
   }
 
-  const [player1, player2] = playersData;
+  const [player1, player2] = playersData as Array<{ hall_id: string }>;
   if (player1.hall_id !== player2.hall_id) {
     redirect("/?error=You can only challenge players from your hall");
   }
