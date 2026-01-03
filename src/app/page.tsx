@@ -13,9 +13,32 @@ export default async function Home() {
     data: { user },
   } = await supabase.auth.getUser();
 
+  // Get the user's hall_id if logged in
+  let userHallId: string | null = null;
+  if (user) {
+    const { data: userData } = await supabase
+      .from("players")
+      .select("hall_id")
+      .eq("id", user.id)
+      .maybeSingle();
+    userHallId = userData?.hall_id ?? null;
+  }
+
+  // If no user or no hall found for user, default to first hall
+  if (!userHallId) {
+    const { data: defaultHall } = await supabase
+      .from("halls")
+      .select("id")
+      .limit(1)
+      .single();
+    userHallId = defaultHall?.id ?? null;
+  }
+
+  // Fetch players scoped to the hall
   const { data: playersData } = await supabase
     .from("players")
     .select("*")
+    .eq("hall_id", userHallId)
     .order("rating", { ascending: false });
 
   const players = playersData as any[];

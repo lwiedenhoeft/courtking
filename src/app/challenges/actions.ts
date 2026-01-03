@@ -31,6 +31,21 @@ export async function createChallenge(formData: FormData) {
     redirect("/?error=You cannot challenge yourself");
   }
 
+  // Validate that both players are in the same hall
+  const { data: playersData } = await supabase
+    .from("players")
+    .select("hall_id")
+    .in("id", [user.id, challengedId]);
+
+  if (!playersData || playersData.length !== 2) {
+    redirect("/?error=Could not verify players");
+  }
+
+  const [player1, player2] = playersData;
+  if (player1.hall_id !== player2.hall_id) {
+    redirect("/?error=You can only challenge players from your hall");
+  }
+
   const { error } = await (supabase as any).from("challenges").insert({
     challenger_id: user.id,
     challenged_id: challengedId,

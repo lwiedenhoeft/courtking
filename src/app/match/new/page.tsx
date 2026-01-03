@@ -18,6 +18,15 @@ export default async function NewMatchPage({
     redirect("/login");
   }
 
+  // Get the user's hall_id
+  const { data: userData } = await supabase
+    .from("players")
+    .select("hall_id")
+    .eq("id", user.id)
+    .maybeSingle();
+
+  const userHallId = userData?.hall_id;
+
   let allowedPlayerIds: string[] | null = null;
 
   if (challengeId) {
@@ -48,6 +57,7 @@ export default async function NewMatchPage({
   const { data: playersData } = await supabase
     .from("players")
     .select("*")
+    .eq("hall_id", userHallId)
     .order("username");
 
   const allPlayers = playersData as any[];

@@ -39,11 +39,7 @@ export default async function PlayerPage({ params }: PageProps) {
 
   const player = playerData as any;
 
-  // Fetch matches where player is winner or loser
-  // We need to join with player details to get opponent names
-  // Supabase simple query for OR condition with foreign tables is tricky in one go if we want flat structure
-  // But we can fetch matches and then manually process or use a more complex query.
-  // Let's try a simple approach: fetch matches and expand winner/loser
+  // Fetch matches where player is winner or loser, scoped to the player's hall
   const { data: matchesData } = await supabase
     .from("matches")
     .select(`
@@ -51,6 +47,7 @@ export default async function PlayerPage({ params }: PageProps) {
       winner:players!winner_id(username),
       loser:players!loser_id(username)
     `)
+    .eq("hall_id", player.hall_id)
     .or(`winner_id.eq.${id},loser_id.eq.${id}`)
     .order("created_at", { ascending: false });
 
