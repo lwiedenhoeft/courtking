@@ -80,7 +80,7 @@ export async function submitMatch(formData: FormData) {
     redirect("/match/new?error=Players must be from the same hall");
   }
 
-  const hallId = winner.hall_id;;
+  const hallId = winner.hall_id;
 
   // 3. Calculate Glicko-2
   const glicko = new Glicko2({
