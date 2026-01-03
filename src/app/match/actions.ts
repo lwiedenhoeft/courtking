@@ -75,6 +75,13 @@ export async function submitMatch(formData: FormData) {
   const winner = (playersData as any[]).find((p) => p.id === winnerId)!;
   const loser = (playersData as any[]).find((p) => p.id === loserId)!;
 
+  // Validate that both players are in the same hall
+  if (winner.hall_id !== loser.hall_id) {
+    redirect("/match/new?error=Players must be from the same hall");
+  }
+
+  const hallId = winner.hall_id;
+
   // 3. Calculate Glicko-2
   const glicko = new Glicko2({
     tau: 0.5,
@@ -127,6 +134,7 @@ export async function submitMatch(formData: FormData) {
     score: score,
     verified: true, // Auto-verify for now
       reporter_id: user.id,
+      hall_id: hallId,
     } as any)
     .select("id")
     .single();

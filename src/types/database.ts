@@ -9,6 +9,26 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
+      halls: {
+        Row: {
+          id: string
+          name: string
+          location: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          location?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          location?: string | null
+          created_at?: string
+        }
+      }
       players: {
         Row: {
           id: string
@@ -17,6 +37,7 @@ export interface Database {
           rd: number
           volatility: number
           avatar_url: string | null
+          hall_id: string
           created_at: string
         }
         Insert: {
@@ -26,6 +47,7 @@ export interface Database {
           rd?: number
           volatility?: number
           avatar_url?: string | null
+          hall_id: string
           created_at?: string
         }
         Update: {
@@ -35,6 +57,7 @@ export interface Database {
           rd?: number
           volatility?: number
           avatar_url?: string | null
+          hall_id?: string
           created_at?: string
         }
       }
@@ -45,6 +68,8 @@ export interface Database {
           loser_id: string
           score: string
           verified: boolean
+          hall_id: string
+          reporter_id: string | null
           created_at: string
         }
         Insert: {
@@ -53,6 +78,8 @@ export interface Database {
           loser_id: string
           score: string
           verified?: boolean
+          hall_id: string
+          reporter_id?: string | null
           created_at?: string
         }
         Update: {
@@ -61,6 +88,8 @@ export interface Database {
           loser_id?: string
           score?: string
           verified?: boolean
+          hall_id?: string
+          reporter_id?: string | null
           created_at?: string
         }
       }
